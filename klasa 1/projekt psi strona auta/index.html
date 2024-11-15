@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon by Igor Maciejewski</title>
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/index.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="navbar" tabindex="0">
+        <label>Wyszukaj po marce:</label>
+        <select name="cars" id="cars" onchange="Wybor()">
+            <option value="all">Wszystkie</option>
+            <option value="volkswagen">Volkswagen</option>
+            <option value="opel">Opel</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+            <option value="porche">Porche</option>
+            <option value="bmw">BMW</option>
+        </select>
+    </div>
+
+    <div class="wrap">
+        <p id="title">
+        SALON SAMOCHODOWY I_Maciej</p>
+    </div>
+    <div class="wrap">
+        <div class="box cars audi">
+            <img src="res/audiqua.png" alt="auto" class="image left">
+            <span class="opis">
+                <p>Marka: Audi<br>
+                Model: e-tron GT quattro<br>
+                Rok produkcji: 2021<br>
+                Moc silnika: 440 kW<br>
+                Przebieg: 400 km <br>
+                Cena: 500 000zł</p>
+                <input class="kup" type="button" value="kup" onclick="WczytajDane(0)">
+            </span>
+        </div>
+
+        <div class="box cars bmw">
+            <img src="res/e46.png" alt="auto" class="image left">
+            <span class="opis">
+                <p>Marka: BMW<br>
+                Model: E46<br>
+                Rok Produkcji: 2010<br>
+                Moc Silnika: 136KM<br>
+                Przebieg: 451 500km<br>
+                Cena: 50 000zł</p>
+                <input class="kup" type="button" value="kup" onclick="WczytajDane(1)">
+            </span>
+        </div>
+
+        <div class="box cars volkswagen">
+            <img src="res/golf1.png" alt="auto" class="image left">
+            <span class="opis">
+                <p>Marka: Volkswagen<br>
+                Model: Golf mk1<br>
+                Rok Produkcji: 1982<br>
+                Moc Silnika: 90KM<br>
+                Przebieg: 267 800km<br>
+                Cena: 20 000zł</p>
+                <input class="kup" type="button" value="kup" onclick="WczytajDane(2)">
+            </span>
+        </div>
+
+        <div class="box cars opel">
+            <img src="res/astra3.png" alt="auto" class="image left">
+            <span class="opis">
+                <p>Marka: Opel<br>
+                Model: Astra mk3<br>
+                Rok Produkcji: 2011<br>
+                Moc Silnika: 110KM<br>
+                Przebieg: 250 500km<br>
+                Cena: 23 000zł</p>
+                <input class="kup" type="button" value="kup" onclick="WczytajDane(3)">
+            </span>
+        </div>
+
+        <div class="box cars bmw">
+            <img src="res/320i.png" alt="auto" class="image left">
+            <span class="opis">
+                <p>Marka: BMW<br>
+                Model: 320i<br>
+                Rok Produkcji: 2006<br>
+                Moc Silnika: 170KM<br>
+                Przebieg: 120 500km<br>
+                Cena: 25 000zł</p>
+                <input class="kup" type="button" value="kup" onclick="WczytajDane(4)">
+            </span>
+        </div>
+
+        <div class="box cars porche">
+            <img src="res/911.png" alt="auto" class="image left">
+            <span class="opis">
+                <p>Marka: Porche<br>
+                Model: 911<br>
+                Rok Produkcji: 2023<br>
+                Moc Silnika: 385KM<br>
+                Przebieg: 10 230km<br>
+                Cena: 611 000zł</p>
+                <input class="kup" type="button" value="kup" onclick="WczytajDane(5)">
+            </span>
+        </div>
+
+        <div class="box cars mercedes">
+            <img src="res/w124.png" alt="auto" class="image left">
+            <span class="opis">
+                <p>Marka: Mercedes<br>
+                Model: W124<br>
+                Rok Produkcji: 1995<br>
+                Moc Silnika: 113KM<br>
+                Przebieg: 99 520km<br>
+                Cena: 62 000zł</p>
+                <input class="kup" type="button" value="kup" onclick="WczytajDane(6)">
+            </span>
+        </div>
+
+        <div class="box cars audi">
+            <img src="res/coupe100.png" alt="auto" class="image left">
+            <span class="opis">
+                <p>Marka: Audi<br>
+                Model: 100 Coupe S<br>
+                Rok Produkcji: 1975<br>
+                Moc Silnika: 112KM<br>
+                Przebieg: 27 000km<br>
+                Cena: 55 000zł</p>
+                <input class="kup" type="button" value="kup" onclick="WczytajDane(7)">
+            </span>
+        </div>
+
+        <div class="box cars volkswagen">
+            <img src="res/golf4.png" alt="auto" class="image left">
+            <span class="opis">
+                <p>Marka: Volkswagen<br>
+                Model: Golf mk4<br>
+                Rok Produkcji: 2002<br>
+                Moc Silnika: 150KM<br>
+                Przebieg: 303 750km<br>
+                Cena: 10 500zł</p>
+                <input class="kup" type="button" value="kup" onclick="WczytajDane(8)">
+            </span>
+        </div>
+
+        <div class="box cars volkswagen">
+            <img src="res/passat6.png" alt="auto" class="image left">
+            <span class="opis">
+                <p>Marka: Volkswagen<br>
+                Model: Passat mk6<br>
+                Rok Produkcji: 2008<br>
+                Moc Silnika: 140KM<br>
+                Przebieg: 289 410km<br>
+                Cena: 20 900zł</p>
+                <input class="kup" type="button" value="kup" onclick="WczytajDane(9)">
+            </span>
+        </div>
+
+        <div class="box cars mercedes">
+            <img src="res/s350.png" alt="auto" class="image left">
+            <span class="opis">
+                <p>Marka: Mercedes<br>
+                Model: S350<br>
+                Rok Produkcji: 2015<br>
+                Moc Silnika: 258KM<br>
+                Przebieg: 260 000km<br>
+                Cena: 159 000zł</p>
+                <input class="kup" type="button" value="kup" onclick="WczytajDane(10)">
+            </span>
+        </div>
+    </div>
+</body>
+</html>

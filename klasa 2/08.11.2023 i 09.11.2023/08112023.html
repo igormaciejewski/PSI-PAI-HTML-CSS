@@ -1,0 +1,79 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Obliczanie pola prostokąta</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+        #lewa-czesc {
+            flex: 1;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        #prawa-czesc {
+            flex: 1;
+            padding: 20px;
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div id="lewa-czesc">
+        <form>
+            
+            Liczymy pole prostokąta:<br>
+            Podaj bok A<input type="text" name="bokA" id="bokA"><br>
+            Podaj bok B<input type="text" name="bokB" id="bokB"><br>
+            <button type="button" onclick="obliczMiejsce()">Oblicz</button>
+        </form>
+    </div>
+    <div id="prawa-czesc">
+        <p id="wynik-tekst"></p>
+    </div>
+
+    <script>
+        function obliczMiejsce() {
+            let bokA = parseFloat(document.getElementById("bokA").value);
+            let bokB = parseFloat(document.getElementById("bokB").value);
+            let pole = bokA * bokB;
+            let wynikTekst = "Pole prostokąta wynosi " + pole;
+            document.getElementById("wynik-tekst").textContent = wynikTekst;
+        }
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TESTIIIIIIIIII</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <fieldset>
+            <legend>Wybierz</legend>
+            <input type="radio" value="A" name="radio"> A
+            <input type="radio" value="B" name="radio"> B
+            <input type="radio" value="C" name="radio"> C
+            <br>
+            <input type="button" value="wyślij" onClick="formularz2()">
+        </fieldset>
+
+        <script>
+            function formularz2() {
+                var f = document.getElementsByName("radio");
+                var v;
+                for(var i = 0; i < f.length; i++){
+                    if(f[i].checked) {
+                        v = f[i].value;
+                    }
+                }
+                alert(v);
+            }
+        </script>
+    </body>
+</html>

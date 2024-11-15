@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            height: 100vh;
+        } 
+
+        section {
+            border: 1px solid grey;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <label for="czcionka">Wybierz czcionkę: </label>
+        <select name="czcionka" id="czcionka">
+            <option value="Arial, sans-serif">Arial</option>
+            <option value="Verdana, sans-serif">Verdana</option>
+            <option value="Courier New, monospace">Courier New</option>
+        </select>
+        <button onclick="zmienCzcionke()">Zmień czcionkę</button>
+
+        <input type="text" id="kolor" name="kolor"><br>
+        <button onclick="changeColor()">Zmień kolor</button>
+
+        <fieldset>
+            Liczba #1
+            <input type="text" name="bloka" id="bloka">
+            <br>
+            Liczba #2
+            <input type="text" name="blokb" id="blokb">
+            <br>
+            Wybierz co chcesz z tym zrobić
+            <br>
+            <input type="radio" name="dzialanie" value="dodawanie">dodawanie<br>
+            <input type="radio" name="dzialanie" value="odejmowanie">odejmowanie<br>
+            <input type="radio" name="dzialanie" value="mnozenie">mnożenie<br>
+            <input type="radio" name="dzialanie" value="dzielenie">dzielenie<br>
+            <input type="button" value="wyślij" onclick="formularz2()"> 
+        </fieldset> 
+    </section>
+
+    <section id="rightbox">
+        
+        <p id="tekst">To jest</p>
+        
+    </section>
+
+    <script>
+        function zmienCzcionke() {
+            var wybranaCzcionka = document.getElementById('czcionka').value;
+            var mojElement = document.getElementById('tekst');
+            mojElement.style.fontFamily = wybranaCzcionka;
+        }
+
+        function changeColor() {
+            var kolor = document.getElementById("kolor").value;
+            document.getElementById("rightbox").style.backgroundColor = kolor;
+        }
+
+        function formularz2() {
+            var liczba1 = parseFloat(document.getElementById("bloka").value);
+            var liczba2 = parseFloat(document.getElementById("blokb").value);
+            var dzialanie;
+            var radios = document.getElementsByName("dzialanie");
+            
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    dzialanie = radios[i].value;
+                }
+            }
+            
+            var wynik;
+            
+            switch (dzialanie) {
+                case "dodawanie":
+                    wynik = liczba1 + liczba2;
+                    document.getElementById("rightbox").innerHTML = "Wybrałeś dodanie liczby " + liczba1 + " i liczby " + liczba2;
+                    break;
+                case "odejmowanie":
+                    wynik = liczba1 - liczba2;
+                    document.getElementById("rightbox").innerHTML = "Wybrałeś odejmowanie liczby " + liczba1 + " i liczby " + liczba2;
+                    break;
+                case "mnozenie":
+                    wynik = liczba1 * liczba2;
+                    document.getElementById("rightbox").innerHTML = "Wybrałeś mnożenie liczby " + liczba1 + " i liczby " + liczba2;
+                    break;
+                case "dzielenie":
+                    if (liczba2 === 0) {
+                        document.getElementById("rightbox").innerHTML = "Debilu, podałeś zero!";
+                    } else {
+                        wynik = liczba1 / liczba2;
+                        document.getElementById("rightbox").innerHTML = "Wybrałeś dzielenie liczby " + liczba1 + " i liczby " + liczba2;
+                    }
+                    break;
+                default:
+                    wynik = "Coś podałeś źle, debilu!";
+            }
+            
+            document.getElementById("rightbox").innerHTML = "Wynik: " + wynik;
+        }
+    </script>
+</body>
+</html>
+

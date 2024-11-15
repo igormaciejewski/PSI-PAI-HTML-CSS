@@ -1,0 +1,79 @@
+       function formularz2()
+        {
+            var liczba1 = parseFloat(document.getElementById("bloka").value)
+            var liczba2 = parseFloat(document.getElementById("blokb").value)
+            var dzialanie
+            var radios = document.getElementsByName("dzialanie");
+            for (var i = 0; i < radios.length; i++)
+            {
+                if(radios[i].checked)
+                {
+                    dzialanie = radios[i].value
+                }
+            }
+            var wynik
+            switch (dzialanie) {
+                case "dodawanie":
+                    
+                    wynik = liczba1 + liczba2;
+                    document.getElementById("pole1").innerHTML = "Wybrales dodanie liczby " + liczba1 + " i liczby " + liczba2;
+                    break;
+                case "odejmowanie":
+                    
+                    wynik = liczba1 - liczba2;
+                    document.getElementById("pole1").innerHTML = "Wybrales odejmownie liczby " + liczba1 + " i liczby " + liczba2;
+                    break;
+                case "mnozenie":
+                    
+                    wynik = liczba1 * liczba2;
+                    document.getElementById("pole1").innerHTML = "Wybrales mnozenie liczby " + liczba1 + " i liczby " + liczba2;
+                    break;
+                case "dzielenie":
+                    
+                    if (liczba2 === 0)
+                    {
+                        document.getElementById("pole3").innerHTML = "debilu podales zero";
+                        document.getElementById("pole1").innerHTML = "debilu podales zero";
+                    }
+                    else
+                    {
+                        wynik = liczba1 / liczba2;
+                        document.getElementById("pole1").innerHTML = "Wybrales dzielenie liczby " + liczba1 + " i liczby " + liczba2;
+                    }
+                    break;
+                default:
+                    wynik = "cos podales zle debilu";
+            }
+            document.getElementById("pole3").innerHTML = "Wynik: " + wynik;
+        }
+
+
+
+
+
+
+        --------------------------------------------------
+
+
+
+
+        <fieldset>
+            Liczba #1
+            <input type="text" name="bloka" id="bloka">
+            <br>
+            Liczba #2
+            <input type="text" name="blokb" id="blokb">
+            <br>
+            Wybierz co chcesz z tym zrobic
+            <br>
+                    <input type="radio" name="dzialanie" value="dodawanie">dodawanie</input>
+                    <br>
+                    <input type="radio" name="dzialanie" value="odejmowanie">odejmowanie</input>
+                    <br>
+                    <input type="radio" name="dzialanie" value="mnozenie">mnozenie</input>
+                    <br>
+                    <input type="radio" name="dzialanie" value="dzielenie">dzielenie</input>
+                    <br>
+                    <input type="button" value="wyślij" onClick="formularz2()"> 
+            </fieldset>  
+            </center> 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #blok
+        {
+            position: absolute;
+            background-color: bisque;
+            margin-left: 40%;
+            width: 40%;
+            height: 80%;
+            border-radius: 20px;
+        }
+    </style>
+    <script>
+        function rysowanie()
+        {
+            let ksztalt = document.getElementById("kształty").value;
+            let kolor = document.getElementById("kolor").value;
+            let div = document.getElementById("blok");
+            let kąt = document.getElementById("kąt").value;
+            div.innerHTML = ` `
+            if(ksztalt == "circle")
+            {
+                div.innerHTML = `
+                    <svg width="400px" height = "400px">
+                        <circle cx="80" cy="80" r="80" fill="${kolor}"></circle>
+                    </svg>
+                `
+            }
+            else if(ksztalt == "rectangle")
+            {
+                div.innerHTML = `
+                        <svg width="400px" height="400px">
+                            <rect width="240px" height="140px" fill="${kolor}" transform="rotate(${kąt},120,70)"></rect>
+                        </svg>
+                `
+            }
+            else if(ksztalt == "triangle")
+            {
+                div.innerHTML = `
+                    <svg width="400px" height = "400px">
+                        <polygon points="100,10 40,198 190,78" fill="${kolor}"></polygon>
+                    </svg>
+                `
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <select id = "kształty">
+        <option>circle</option>
+        <option>rectangle</option>
+        <option>triangle</option>
+    </select>
+    <br>
+    <input type="text" placeholder="Color" id="kolor">
+    <br>
+    <input type="text" placeholder="Transform angle (for rect)" id="kąt">
+    <br>
+    <button onclick="rysowanie()">Draw</button>
+    <div id="blok">
+        <p align="center">Skibidi rysunek</p>
+    </div>
+    <marquee direction="down">Daniel Czerniejewicz</marquee>
+</body>
+</html>

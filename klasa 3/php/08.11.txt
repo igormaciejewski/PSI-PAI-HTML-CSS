@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprawdzanie uprawnień na podstawie wieku</title>
+</head>
+<body>
+    <form method="post">
+        <label for="wiek">Podaj swój wiek:</label>
+        <input type="number" id="wiek" name="wiek" min="0" required>
+        <button type="submit">Sprawdź</button>
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $wiek = intval($_POST["wiek"]);
+
+        if ($wiek < 18) {
+            echo "Jeszcze nie możesz głosować";
+        } elseif ($wiek >= 18 && $wiek < 21) {
+            echo "Możesz tylko głosować";
+        } elseif ($wiek >= 21 && $wiek < 30) {
+            echo "Możesz głosować i kandydować do Sejmu";
+        } elseif ($wiek >= 30 && $wiek < 35) {
+            echo "Możesz głosować i kandydować do Sejmu i Senatu";
+        } elseif ($wiek >= 35) {
+            echo "Możesz głosować, kandydować do Sejmu i Senatu oraz na Prezydenta";
+        }
+    }
+    ?>
+</body>
+</html>
+
+
+
+
+

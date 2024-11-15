@@ -1,0 +1,132 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div {
+            height: 100vh;
+            width: 50%;
+        }
+
+        content {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            flex-direction: column;
+            align-items: center; /* Center the content horizontally */
+            justify-content: center; /* Center the content vertically */
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        div:nth-of-type(1) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            align-self: center; /* Center the button horizontally within the content */
+            margin-top: 10px; /* Add some margin at the top for spacing */
+        }
+
+        #cent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color:black;" id="leftbox">
+        <content>
+            <input type="text" id="kolor" name="kolor"><br>
+            <button onClick="changeColor('left')">Zmień kolor</button>
+        </content>
+    </div>
+    <div style="background-color:white;" id="rightbox" class="rightbox">
+        <content>
+            <input type="text" id="kolorRight" name="kolorRight"><br>
+            <button onClick="changeColor('right')">Zmień kolor</button>
+        </content>
+    </div>
+
+    <script>
+        function changeColor(side) {
+            var inputId = side === 'left' ? 'kolor' : 'kolorRight';
+            var targetId = side === 'left' ? 'rightbox' : 'leftbox';
+            document.getElementById(targetId).style.backgroundColor = document.getElementById(inputId).value;
+        }
+    </script>
+</body>
+</html> -->
+<!doctype html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<title>Tworzenie tabel za pomocą pętli</title>
+
+<style>
+
+table, tr, td
+{
+
+border:1px solid blue;
+
+}
+
+table
+{
+width:50px;
+
+text-align: center;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<script>
+
+var i=1;
+var drawnNumbers = [];
+
+document.write("<table>");
+
+function generateUniqueRandomNumber() 
+{
+    var newNumber;
+    do {
+        newNumber = parseInt(Math.random() * 49 + 1);
+    } while (drawnNumbers.includes(newNumber));
+    drawnNumbers.push(newNumber);
+    return newNumber;
+}
+
+do {
+    var randomNumber = generateUniqueRandomNumber();
+    document.write("<tr><td>" + randomNumber + "</td></tr>");
+    i++;
+} while (i <= 6);
+
+document.write("</table>");
+
+
+</script>
+
+</body>
+
+</html>

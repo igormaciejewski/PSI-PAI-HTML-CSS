@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wybór Kształtu SVG</title>
+    <style>
+        #shape {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        Wybierz kolor:
+        <select id="kolor">
+            <option value="red">czerwony</option>
+            <option value="blue">niebieski</option>
+            <option value="yellow">żółty</option>
+            <option value="green">zielony</option>
+        </select>
+        <br><br>
+        
+        Wybierz kształt:
+        <select id="ksztalt">
+            <option value="circle">koło</option>
+            <option value="square">kwadrat</option>
+            <option value="triangle">trójkąt</option>
+        </select>
+        <br><br>
+        
+        Wybierz rozmiar:
+        <select id="rozmiar">
+            <option value="Large">L</option>
+            <option value="Medium">M</option>
+            <option value="Small">S</option>
+        </select>
+        <br><br>
+        
+        <input type="button" value="wyślij" onClick="wyslijFormularz()">
+    </form>
+    
+    <svg id="shape" width="200" height="200" style="border: 1px solid black;">
+        <!-- Kształty będą rysowane tutaj -->
+    </svg>
+    
+    <script>
+        function wyslijFormularz() {
+            var kolor = document.getElementById("kolor").value;
+            var ksztalt = document.getElementById("ksztalt").value;
+            var rozmiar = document.getElementById("rozmiar").value;
+
+            var shapeSVG = document.getElementById("shape");
+            shapeSVG.innerHTML = ""; // Wyczyść poprzedni kształt
+
+            let size;
+            switch (rozmiar) {
+                case "Large":
+                    size = 80; // Promień dla dużego
+                    break;
+                case "Medium":
+                    size = 60; // Promień dla średniego
+                    break;
+                case "Small":
+                    size = 40; // Promień dla małego
+                    break;
+            }
+
+            // Rysowanie kształtu na podstawie wyboru
+            if (ksztalt === "circle") {
+                shapeSVG.innerHTML = `<circle cx="100" cy="100" r="${size}" fill="${kolor}" stroke="none" />`;
+            } else if (ksztalt === "square") {
+                shapeSVG.innerHTML = `<rect x="${100 - size/2}" y="${100 - size/2}" width="${size}" height="${size}" fill="${kolor}" stroke="none" />`;
+            } else if (ksztalt === "triangle") {
+                shapeSVG.innerHTML = `<polygon points="100,${100 - size} ${100 - size},${100 + size} ${100 + size},${100 + size}" fill="${kolor}" stroke="none" />`;
+            }
+        }
+    </script>
+</body>
+</html>

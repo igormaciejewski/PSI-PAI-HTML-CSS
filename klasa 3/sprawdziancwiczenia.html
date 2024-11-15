@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <select name="kolor" id="Kolor">
+            <option value="blue">Niebieski</option>
+            <option value="yellow">Żółty</option>
+            <option value="red">Czerwony</option>
+            <option value="green">Zielony</option>
+        </select>
+        <br><br>
+        <select name="ksztalt" id="Ksztalt">
+            <option value="circle">Kolo</option>
+            <option value="rectangle">Prostokat</option>
+            <option value="triangle">Trojkat</option>
+        </select>
+        <br><br>
+        <select name="size" id="Size">
+            <option value="L">Large</option>
+            <option value="M">Medium</option>
+            <option value="S">Small</option>
+        </select>
+        <br><br>
+        <input type="button" value="Generuj" onclick="Narysuj()">
+        <input type="button" value="Obroc" onclick="Obroc()">
+        <input type="button" value="Zmniejsz" onclick="Zmniejsz()">
+        <input type="button" value="Ruch" onclick="ruch()">
+    </form>
+    <div id="SVG"></div>
+
+    <script>
+        let rotate = 0;
+        let skala = 1;
+
+        function Narysuj() {
+            var figure = document.getElementById("Ksztalt").value;
+            var color = document.getElementById("Kolor").value;
+            var size = document.getElementById("Size").value;
+
+            let svgv = "";
+            switch (size) {
+                case "S":
+                    size = 100;
+                    break;
+                case "M":
+                    size = 200;
+                    break;
+                case "L":
+                    size = 300;
+                    break;
+            }
+            if (figure == "rectangle") {
+                svgv = `<svg width="500" height="500" id="shape">
+                            <rect x="100" y="100" width="${size}" height="${size}" fill="${color}" stroke="none" />
+                        </svg>`;
+            } else if (figure == "circle") {
+                svgv = `<svg width="500" height="500" id="shape">
+                            <circle cx="300" cy="300" r="${size / 2}" fill="${color}" stroke="none" />
+                        </svg>`;
+            } else if (figure == "triangle") {
+                const height = (Math.sqrt(3) / 2) * size; // Wysokość trójkąta równobocznego
+                svgv = `<svg width="500" height="500" id="shape">
+                            <polygon points="250,${300 - height} ${250 - size / 2},${300 + height / 2} ${250 + size / 2},${300 + height / 2}" fill="${color}" stroke="none" />
+                        </svg>`;
+            }
+
+            document.getElementById("SVG").innerHTML = svgv;
+        }
+
+        function Obroc() {
+            rotate += 45;
+            transfor();
+        }
+
+        function Zmniejsz() {
+            skala -= 0.25;
+            if (skala < 0.1) skala = 0.1; // Minimalna skala
+            transfor();
+        }
+
+        function transfor() {
+            const svg = document.getElementById("SVG").querySelector('svg');
+            if (svg) {
+                svg.setAttribute('transform', `rotate(${rotate}, 250, 250) scale(${skala})`);
+            }
+        }
+
+        function ruch() {
+            // Tutaj możesz dodać kod do ruchu obiektu
+        }
+    </script>
+</body>
+</html>

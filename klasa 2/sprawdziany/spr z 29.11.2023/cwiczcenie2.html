@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+            height: 100vh;
+        }
+        section {
+            border: 1px solid grey;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        1
+    </section>
+    <section>
+        2
+    </section>
+    <section>
+        3
+        <input type="text" id="kolor1" name="kolor"><br>
+        <button onClick="changeColor('paragraf3', 'kolor1')">Zmień kolor</button>
+        <p id="paragraf3"></p>
+    </section>
+    <section>
+        4
+        <input type="text" id="kolor2" name="kolor"><br>
+        <button onClick="changeColor('paragraf4', 'kolor2')">Zmień kolor</button>
+        <p id="paragraf4"></p>
+    </section>
+    <script>
+        function changeColor(paragraphId, colorInputId) {
+            document.getElementById(paragraphId).style.backgroundColor = document.getElementById(colorInputId).value;
+        }
+    </script>
+</body>
+</html>

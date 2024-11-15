@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koko</title>
+</head>
+<body>
+    <form>Wybierz kota<br>
+        <select id="ssaki">
+            <option value="kot1">kot1</option>
+            <option value="kot2">kot2</option>
+            <option value="kot3">kot3</option>
+            <option value="kot4">kot4</option>
+            <option value="kot5">kot5</option>
+        </select>
+        <input type="button" value="wyślij" onClick="formularz()">
+    </form>
+    <script>
+        function formularz()
+        {
+            var s=document.getElementById("ssaki");
+alert('Value przechowuje wartość: '+s.value);
+alert('selectedIndex zwraca wartość: '+s.selectedIndex);
+alert('length zwraca wartość: '+s.length);
+        }
+    </script>
+</body>
+</html>

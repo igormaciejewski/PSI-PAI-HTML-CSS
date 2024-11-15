@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <script>
+        
+        let login = prompt("podaj login")
+        let password = prompt("podaj haslo") //haslo 8
+        let haslo = password.charCodeAt(0)
+        if (login == "admin" && haslo == "56")
+        {
+            document.write("jestes adminem");
+        }
+        else
+        {
+            document.write("nie jestes adminem")
+        }
+    
+        /*
+        let znak = prompt("podaj znak")
+        alert(znak.charCodeAt(0))
+        */
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+    <form action="">
+        <div>
+            <label>
+                <input type="radio" id="colorRed" name="color" value="red"> Czerwony
+            </label>
+            <label>
+                <input type="radio" id="colorBlue" name="color" value="blue"> Niebieski
+            </label>
+            <label>
+                <input type="radio" id="colorGreen" name="color" value="green"> Zielony
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" id="square" value="rect"> Kwadrat
+            </label>
+            <label>
+                <input type="checkbox" id="circle" value="circle"> Koło
+            </label>
+        </div>
+        <input type="button" value="Wygeneruj" onclick="generuj()">
+    </form>
+    <br>
+    <br>
+    <div id="SVG"></div>
+    <script>
+        function generuj() {
+            let color;
+            if (document.getElementById("colorRed").checked) {
+                color = document.getElementById("colorRed").value;
+            } else if (document.getElementById("colorBlue").checked) {
+                color = document.getElementById("colorBlue").value;
+            } else if (document.getElementById("colorGreen").checked) {
+                color = document.getElementById("colorGreen").value;
+            }
+
+            let svg = `<svg width="500" height="500" id="shape">`;
+
+            if (document.getElementById("square").checked) {
+                svg += `<rect x="100" y="100" width="100" height="100" fill="${color}" stroke="none"/>`;
+            }
+
+            if (document.getElementById("circle").checked) {
+                svg += `<circle cx="300" cy="300" r="100" fill="${color}" stroke="none" />`;
+            }
+
+            svg += `</svg>`;
+            document.getElementById("SVG").innerHTML = svg;
+        }
+    </script>
+</body>
+</html>
